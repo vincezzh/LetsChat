@@ -23,6 +23,7 @@ class LoginSignUpViewController: PFLogInViewController, PFLogInViewControllerDel
         
         self.logInView.signUpButton.removeTarget(self, action: nil, forControlEvents: .AllEvents)
         self.logInView.signUpButton.addTarget(self, action: "displaySignUp", forControlEvents: .TouchUpInside)
+        self.logInView.logInButton.backgroundColor = UIColor.orangeColor()
         
         if PFUser.currentUser() != nil {
             showChatOverview()
