@@ -79,6 +79,7 @@
 		6116DDA11A71F9CB00BD6E0B /* ChooseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6116DDA01A71F9CB00BD6E0B /* ChooseTableViewController.swift */; };
 		6140D6BE1A7337FB0031EBED /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6140D6BD1A7337FB0031EBED /* OverviewTableViewCell.swift */; };
 		6140D6C01A733F980031EBED /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6140D6BF1A733F980031EBED /* MessageViewController.swift */; };
+		6162CF071B042D3C00412EAD /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162CF061B042D3C00412EAD /* SignUpTableViewController.swift */; };
 		61D209BC1A73DE5A006D29BA /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D209BB1A73DE5A006D29BA /* NSDate+Utilities.m */; };
 		61D209BE1A74129C006D29BA /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 61D209BD1A74129C006D29BA /* notification.caf */; };
 /* End PBXBuildFile section */
@@ -228,6 +229,7 @@
 		6116DDA01A71F9CB00BD6E0B /* ChooseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTableViewController.swift; sourceTree = "<group>"; };
 		6140D6BD1A7337FB0031EBED /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
 		6140D6BF1A733F980031EBED /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		6162CF061B042D3C00412EAD /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		61D209BA1A73DE5A006D29BA /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		61D209BB1A73DE5A006D29BA /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		61D209BD1A74129C006D29BA /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				6116DCFC1A71E9DC00BD6E0B /* Helper */,
 				6116DCB71A71E62900BD6E0B /* AppDelegate.swift */,
 				6116DD981A71EF6A00BD6E0B /* LoginSignUpViewController.swift */,
+				6162CF061B042D3C00412EAD /* SignUpTableViewController.swift */,
 				6116DD9E1A71F2E500BD6E0B /* OverviewTableViewController.swift */,
 				6140D6BD1A7337FB0031EBED /* OverviewTableViewCell.swift */,
 				6116DDA01A71F9CB00BD6E0B /* ChooseTableViewController.swift */,
@@ -680,6 +683,7 @@
 				6116DD821A71EA0300BD6E0B /* JSQPhotoMediaItem.m in Sources */,
 				6116DD6F1A71EA0300BD6E0B /* UIDevice+JSQMessages.m in Sources */,
 				6116DD8D1A71EA0300BD6E0B /* JSQMessagesLabel.m in Sources */,
+				6162CF071B042D3C00412EAD /* SignUpTableViewController.swift in Sources */,
 				6116DD811A71EA0300BD6E0B /* JSQMessagesBubbleImage.m in Sources */,
 				6116DD761A71EA0300BD6E0B /* JSQMessagesBubbleImageFactory.m in Sources */,
 				61D209BC1A73DE5A006D29BA /* NSDate+Utilities.m in Sources */,

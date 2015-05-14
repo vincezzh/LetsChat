@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>778E4B46-E905-4E11-ACAA-094C8E063F8F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LetsChat</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>98AF05D919C9F5181257CCDC9CF87343892DE862</key>
+		<string>https://github.com/vincezzh/LetsChat.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LetsChat.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>98AF05D919C9F5181257CCDC9CF87343892DE862</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/vincezzh/LetsChat.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>98AF05D919C9F5181257CCDC9CF87343892DE862</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>98AF05D919C9F5181257CCDC9CF87343892DE862</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LetsChat</string>
+		</dict>
+	</array>
+</dict>
+</plist>
