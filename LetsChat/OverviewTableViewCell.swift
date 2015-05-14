@@ -10,9 +10,12 @@ import UIKit
 
 class OverviewTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var newMessageIndicator: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

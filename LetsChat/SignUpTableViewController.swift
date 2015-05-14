@@ -19,10 +19,31 @@ class SignUpTableViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet weak var lastnameTextField: UITextField!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     
+    var change = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.rightBarButtonItem = doneBarButtonItem
+        
+        if change {
+            doneBarButtonItem.action = "changeProfile"
+            
+            usernameTextField.text = PFUser.currentUser().username
+            emailTextField.text = PFUser.currentUser().email
+            firstnameTextField.text = PFUser.currentUser()["firstName"] as! String
+            lastnameTextField.text = PFUser.currentUser()["lastName"] as! String
+            
+            passwordTextField.enabled = false;
+            repeatPasswordTextField.enabled = false;
+            
+            let profileImageFile = PFUser.currentUser()["profileImage"] as! PFFile
+            profileImageFile.getDataInBackgroundWithBlock({ (data: NSData!, error: NSError!) -> Void in
+                if error == nil {
+                    self.profileImageView.image = UIImage(data: data)
+                }
+            })
+        }
     }
 
     @IBAction func addProfileImage(sender: AnyObject) {
@@ -104,6 +125,31 @@ class SignUpTableViewController: UITableViewController, UIImagePickerControllerD
                     installation.saveInBackgroundWithBlock(nil)
                     
                     self.showChatOverview()
+                }
+            })
+        }else {
+            let alert = UIAlertController(title: "Missing Information", message: "Please fill out all items", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func changeProfile() {
+        let profileImageData = UIImageJPEGRepresentation(self.profileImageView.image, 0.6)
+        let profileImageFile = PFFile(data: profileImageData)
+        
+        if usernameTextField.text != "" && emailTextField.text != "" && firstnameTextField.text != "" && lastnameTextField.text != "" {
+            var user = PFUser.currentUser()
+            user.username = usernameTextField.text
+            user.email = emailTextField.text
+            
+            user["firstName"] = firstnameTextField.text
+            user["lastName"] = lastnameTextField.text
+            user["profileImage"] = profileImageFile
+            
+            user.saveInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+                if error == nil {
+                    self.navigationController?.popViewControllerAnimated(true)
                 }
             })
         }else {

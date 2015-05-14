@@ -35,11 +35,27 @@ class MessageViewController: JSQMessagesViewController {
         let selfUsername = PFUser.currentUser().username as NSString
         let incomingUsername = incomingUser.username as NSString
         
-        selfAvatar = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(selfUsername.substringWithRange(NSMakeRange(0, 2)), backgroundColor: UIColor.greenColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(14), diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))
+        selfAvatar = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(selfUsername.substringWithRange(NSMakeRange(0, 2)), backgroundColor: UIColor.blueColor(), textColor: UIColor.whiteColor(), font: UIFont.systemFontOfSize(14), diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))
         incomingAvatar = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(incomingUsername.substringWithRange(NSMakeRange(0, 2)), backgroundColor: UIColor.lightGrayColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(14), diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))
         
+        let selfProfileImageFile = PFUser.currentUser()["profileImage"] as! PFFile
+        let incomingProfileImageFile = incomingUser["profileImage"] as! PFFile
+        selfProfileImageFile.getDataInBackgroundWithBlock { (selfData: NSData!, selfError: NSError!) -> Void in
+            if selfError == nil {
+                incomingProfileImageFile.getDataInBackgroundWithBlock({ (incomingData: NSData!, incomingError: NSError!) -> Void in
+                    if incomingError == nil {
+                        let selfImage = UIImage(data: selfData)
+                        let incomingImage = UIImage(data: incomingData)
+                        
+                        self.selfAvatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(selfImage, diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))
+                        self.incomingAvatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(incomingImage, diameter: UInt(kJSQMessagesCollectionViewAvatarSizeDefault))
+                    }
+                })
+            }
+        }
+        
         let bubbleFactory = JSQMessagesBubbleImageFactory()
-        outgoingBubbleImage = bubbleFactory.outgoingMessagesBubbleImageWithColor(UIColor.greenColor())
+        outgoingBubbleImage = bubbleFactory.outgoingMessagesBubbleImageWithColor(UIColor.blueColor())
         incomingBubbleImage = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.lightGrayColor())
         
         loadMessages()
@@ -117,6 +133,11 @@ class MessageViewController: JSQMessagesViewController {
                 
                 self.room["lastUpdate"] = NSDate()
                 self.room.saveInBackgroundWithBlock(nil)
+                
+                let unreadMessage = PFObject(className: "UnreadMessage")
+                unreadMessage["user"] = self.incomingUser
+                unreadMessage["room"] = self.room
+                unreadMessage.saveInBackgroundWithBlock(nil)
             }else {
                 println("error sending message \(error.localizedDescription)")
             }
